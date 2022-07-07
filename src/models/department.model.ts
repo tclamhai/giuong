@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 // An interface that describes the properties
 // that are requried to create a new User
@@ -24,12 +24,12 @@ const departmentSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     displayname: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   {
     toJSON: {
@@ -37,18 +37,13 @@ const departmentSchema = new mongoose.Schema(
         ret.id = ret._id;
         delete ret._id;
         delete ret.__v;
-      },
-    },
+      }
+    }
   }
 );
 
-departmentSchema.statics.build = (attrs: DepartmentAttrs) => {
-  return new Department(attrs);
-};
+departmentSchema.statics.build = (attrs: DepartmentAttrs) => new Department(attrs);
 
-const Department = mongoose.model<DepartmentDoc, DepartmentModel>(
-  "Department",
-  departmentSchema
-);
+const Department = mongoose.model<DepartmentDoc, DepartmentModel>('Department', departmentSchema);
 
 export { Department };

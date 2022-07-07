@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "start":"node dist/index.js",
+    "start": "node dist/index.js",
     "test": "jest --watchAll --no-cache",
+    "lint": "eslint . --ext .ts",
+    "lintfix": "eslint . --ext .ts --fix",
     "build": "tsc -p ."
   },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "modulePathIgnorePatterns": ["<rootDir>/dist/"],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ],
     "setupFilesAfterEnv": [
       "./src/test/setup.ts"
     ]
@@ -26,6 +30,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
+    "jest": "^28.1.2",
     "jsonwebtoken": "^8.5.1",
     "mongodb-memory-server": "^8.7.2",
     "mongoose": "^6.4.3",
@@ -41,6 +46,12 @@
     "@types/jest": "^28.1.4",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "prettier": "2.7.1",
     "ts-jest": "^28.0.5"
   }
 }
