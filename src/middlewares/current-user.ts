@@ -6,6 +6,7 @@ interface UserPayload {
   email: string;
 }
 
+// Tạo biến global cho request.
 declare global {
   namespace Express {
     interface Request {
@@ -19,10 +20,12 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
+  // Kiểm tra session xem có đăng nhập chưa
   if (!req.session?.jwt) {
     return next();
   }
 
+  // Lấy thông tin user đã đăng nhập trên session
   try {
     const payload = jwt.verify(
       req.session.jwt,
