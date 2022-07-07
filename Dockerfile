@@ -20,9 +20,6 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-ENV JWT_KEY ewqeweqwe
-ENV MONGO_URI mongodb+srv://tangvv:NhatNghe@cluster0.g1yfz.mongodb.net/giuong?retryWrites=true&w=majority
-
 EXPOSE 3000
 
 CMD ["yarn", "start"]
