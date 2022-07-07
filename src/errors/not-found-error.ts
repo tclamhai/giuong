@@ -4,12 +4,12 @@ export class NotFoundError extends CustomError {
   statusCode = 404;
 
   constructor() {
-    super("Route not found");
+    super("Đường dẫn không hợp lệ");
 
     Object.setPrototypeOf(this, NotFoundError.prototype);
   }
 
   serializeErrors() {
-    return [{ message: "Not Found" }];
+    return [{ message: "Không tồn tại" }];
   }
 }
