@@ -4,7 +4,7 @@ import { BadRequestError } from "../../errors";
 import { validateRequest } from "../../middlewares";
 
 import { Password } from "../../services/password";
-import { User } from "../../models/user";
+import { User } from "../../models";
 import { signInSchema } from "../../validations";
 
 const router = express.Router();
