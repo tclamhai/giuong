@@ -10,7 +10,7 @@ import { signInSchema } from "../../validations";
 const router = express.Router();
 
 router.post(
-  "/api/users/signin",
+  "/signin",
   validateRequest(signInSchema),
   async (req: Request, res: Response) => {
     const { email, password } = req.body;
@@ -46,4 +46,4 @@ router.post(
   }
 );
 
-export { router as signinRouter };
+export default router;

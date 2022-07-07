@@ -4,7 +4,7 @@ import { json } from "body-parser";
 import cookieSession from "cookie-session";
 import { NotFoundError } from "./errors";
 import { errorHandler } from "./middlewares";
-import { currentUserRouter, signinRouter, signupRouter } from "./routers/user";
+import userRouter from "./routers/user";
 const app = express();
 app.set("trust proxy", true);
 app.use(json());
@@ -15,9 +15,7 @@ app.use(
   })
 );
 
-app.use(currentUserRouter);
-app.use(signinRouter);
-app.use(signupRouter);
+app.use("/api/users", userRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
