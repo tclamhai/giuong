@@ -36,9 +36,16 @@ const bedSchema = new mongoose.Schema(
       required: true
     },
     active: {
-      type: Boolean,
-      required: true
+      type: Boolean
+    },
+    deleted: {
+      type: Boolean
+    },
+    createby: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User'
     }
+
   },
   {
     toJSON: {
@@ -47,7 +54,8 @@ const bedSchema = new mongoose.Schema(
         delete ret._id;
         delete ret.__v;
       }
-    }
+    },
+    timestamps: true
   }
 );
 
