@@ -9,7 +9,7 @@ import { signInSchema } from '../../validations';
 
 const router = express.Router();
 
-router.post('/signin', validateRequest(signInSchema), async (req: Request, res: Response) => {
+router.post('/signin', validateRequest(signInSchema), validateRequest(signInSchema), async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   const existingUser = await User.findOne({ email });

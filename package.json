@@ -9,7 +9,8 @@
     "test": "jest --watchAll --no-cache",
     "lint": "eslint . --ext .ts",
     "lintfix": "eslint . --ext .ts --fix",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "image": "docker build -t haitcl/giuong ."
   },
   "jest": {
     "preset": "ts-jest",
